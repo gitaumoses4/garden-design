@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.polygon {
+  > .inner {
+    z-index: 1;
+  }
+
+  > :not(.inner) {
+    z-index: 2;
+  }
+}
