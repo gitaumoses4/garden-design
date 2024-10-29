@@ -1,6 +1,7 @@
-import { Polygon } from './components/Polygon.tsx';
+import { Polygon } from './components/polygon.tsx';
 import banner from './assets/banner.jpg';
-import { IconChevronDown } from '@tabler/icons-react';
+import { IconChevronDown, IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import { Flower } from './components/flower.tsx';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <div className="h-[200px] w-full bg-no-repeat bg-cover"></div>
       </Polygon>
 
-      <div className="flex flex-col-reverse items-center w-[800px] mt-[-125px]">
+      <div className="flex flex-col-reverse items-center w-[800px] mt-[-125px] z-10">
         <Polygon
           className="p-8 w-full h-[150px] mt-[-50px] flex items-end justify-center text-text"
           borderColor="bg-content-1"
@@ -24,38 +25,57 @@ function App() {
           <p className="font-bold max-w-[300px] text-center">Haul your imagination to uncharted territories</p>
         </Polygon>
         <Polygon className="p-4 flex items-center h-[100px] justify-center" borderColor="bg-text" bgColor="bg-content-1">
-          <div className="font-extrabold text-4xl">
-            <span className="text-accent">&lt;</span>
+          <div className="font-extrabold flex text-4xl">
+            <span className="text-accent mr-[-10px]">
+              <IconChevronLeft size={40} />
+            </span>
             <span className="text-text">gr</span>
             <span className="text-accent">.</span>
             <span className="text-text">inner</span>
-            <span className="text-accent">&gt;Development</span>
+            <span className="text-accent flex">
+              <IconChevronRight size={40} className="mx-[-10px]" />
+              Development
+            </span>
           </div>
         </Polygon>
       </div>
+      <div className="w-[70vw] h-[400px] flex flex-col items-center mt-[-75px] border-l-text border-r-text border-l-2 border-r-2 relative">
+        <Flower className="absolute top-[-35px] left-[-35px]" />
+        <Polygon
+          type="octagon"
+          className={'absolute top-[-35px] right-[-35px] w-[70px] h-[70px] items-center justify-center'}
+          bgColor="bg-content-1"
+          borderColor="bg-accent"
+        >
+          <div className="flex flex-col gap-0 items-center justify-center brightness-0 invert">
+            <h2 className="m-0 p-0 font-extrabold text-2xl mb-[-5px]">20</h2>
+            <span className="text-xs">pts</span>
+          </div>
+        </Polygon>
 
-      <Polygon
-        bgColor="bg-background"
-        borderColor="bg-text"
-        className="flex items-center justify-center h-[150px] w-[700px] mt-[-4px]"
-        clipPath="polygon(0 0, 100% 0, 100% 78%, 95% 100%, 5% 100%, 0 80%)"
-        borderWidth={{ top: 0 }}
-      >
-        <p className="text-text font-bold">principle</p>
-      </Polygon>
-      <div className="flex items-center gap-8 mt-[-25px] h-[50px]">
-        <Polygon className="p-4 flex items-center justify-center w-[250px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={10}>
-          <p className="text-accent font-extrabold text-xl flex items-center gap-2">
-            regeneration
-            <IconChevronDown />
-          </p>
+        <Polygon
+          bgColor="bg-background"
+          borderColor="bg-text"
+          className="flex items-center justify-center h-[150px] w-[700px] mt-[75px]"
+          clipPath="polygon(0 0, 100% 0, 100% 78%, 95% 100%, 5% 100%, 0 80%)"
+          borderWidth={{ top: 0 }}
+        >
+          <p className="text-text font-bold">principle</p>
         </Polygon>
-        <Polygon className="p-4 flex items-center justify-center w-[100px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={25}>
-          <span className="text-accent font-extrabold text-xl flex items-center gap-2">
-            fx
-            <IconChevronDown />
-          </span>
-        </Polygon>
+        <div className="flex items-center gap-8 mt-[-25px] h-[50px]">
+          <Polygon className="p-4 flex items-center justify-center w-[250px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={10}>
+            <p className="text-accent font-extrabold text-xl flex items-center gap-2">
+              regeneration
+              <IconChevronDown />
+            </p>
+          </Polygon>
+          <Polygon className="p-4 flex items-center justify-center w-[100px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={25}>
+            <span className="text-accent font-extrabold text-xl flex items-center gap-2">
+              fx
+              <IconChevronDown />
+            </span>
+          </Polygon>
+        </div>
       </div>
     </div>
   );

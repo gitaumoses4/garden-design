@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import React, { PropsWithChildren } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 const clipPaths = {
   hexagon: (stretch = 5) => `polygon(${stretch}% 0%, ${100 - stretch}% 0%, 100% 50%, ${100 - stretch}% 100%, ${stretch}% 100%, 0% 50%)`,
+  heptagon: () => `polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)`,
+  octagon: () => `polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%)`,
 };
 
 function createBorderWidth(borderWidth: number | { top?: number; right?: number; bottom?: number; left?: number }, defaultBorder: number) {
@@ -26,7 +29,19 @@ export const Polygon: React.FC<PropsWithChildren<PolygonProps>> = ({
   ...props
 }) => {
   return (
-    <div className={clsx('polygon', props.className, props.borderColor, 'relative')} style={{ clipPath }}>
+    <div className={twMerge('polygon relative flex', props.className, props.borderColor)} style={{ clipPath }}>
+      {props.borderLeftColor && (
+        <div
+          className={clsx(props.borderLeftColor, 'absolute z-1 inner')}
+          style={{
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: '50%',
+            clipPath,
+          }}
+        />
+      )}
       <div
         className={clsx(props.bgColor, 'absolute z-1 inner')}
         style={{
@@ -42,11 +57,12 @@ export const Polygon: React.FC<PropsWithChildren<PolygonProps>> = ({
 
 interface PolygonProps {
   borderWidth?: number | { top?: number; right?: number; bottom?: number; left?: number };
-  type?: 'hexagon';
+  type?: 'hexagon' | 'heptagon' | 'octagon';
   bgColor?: string;
   borderColor?: string;
   className?: string;
   bgImage?: string;
   clipPath?: string;
   stretch?: number;
+  borderLeftColor?: string;
 }
