@@ -3,6 +3,7 @@ import banner from './assets/banner.jpg';
 import { IconChevronDown, IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import { Flower } from './components/flower.tsx';
 import { Steps } from './components/steps.tsx';
+import {Button} from "./components/button.tsx";
 
 function App() {
   return (
@@ -64,28 +65,30 @@ function App() {
           <p className="text-text font-bold">principle</p>
         </Polygon>
         <div className="flex items-center gap-8 mt-[-25px] h-[50px]">
-          <Polygon className="p-4 flex items-center justify-center w-[250px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={10}>
+          <Button className="p-4 flex items-center justify-center w-[250px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={10}>
             <p className="text-accent font-extrabold text-xl flex items-center gap-2">
               regeneration
               <IconChevronDown />
             </p>
-          </Polygon>
-          <Polygon className="p-4 flex items-center justify-center w-[100px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={25}>
+          </Button>
+          <Button className="p-4 flex items-center justify-center w-[100px]" bgColor="bg-content-1" borderColor="bg-text/10" stretch={25}>
             <span className="text-accent font-extrabold text-xl flex items-center gap-2">
               fx
               <IconChevronDown />
             </span>
-          </Polygon>
+          </Button>
         </div>
       </div>
       <Polygon
-        className="w-[70vw] h-[100px] min-w-[900px]"
+        className="w-[70vw] h-[100px] min-w-[900px] justify-center"
         borderColor="bg-text"
         borderWidth={{ top: 0 }}
         borderLeftColor="bg-accent"
         bgColor="bg-background"
         clipPath="polygon(0 0, 100% 0, 100% 70%, 97% 100%, 3% 100%, 0 70%)"
-      />
+      >
+        <span className="font-extrabold text-text/50">processes</span>
+      </Polygon>
       <Steps
         className="mt-[-40px]"
         steps={[
@@ -96,10 +99,12 @@ function App() {
         ]}
       />
 
-      <Polygon className="max-w-[800px] w-full h-[150px] mt-[50px] flex items-center justify-center" bgColor="bg-content-2" borderColor="bg-content-1">
-        <Polygon className="w-[200px] h-[70px] flex items-center justify-center" bgColor="bg-accent" stretch={10}>
-          <span className="text-content-2 font-extrabold text-lg">reveal</span>
-        </Polygon>
+      <Polygon
+        className="max-w-[800px] w-full h-[150px] mt-[50px] flex items-center justify-center"
+        bgColor="bg-content-2"
+        borderColor="bg-content-1"
+      >
+        <Button>reveal</Button>
       </Polygon>
     </div>
   );

@@ -21,15 +21,18 @@ function createBorderWidth(borderWidth: number | { top?: number; right?: number;
   };
 }
 
-export const Polygon: React.FC<PropsWithChildren<PolygonProps>> = ({
+export function Polygon<T extends React.ElementType>({
   type = 'hexagon',
   stretch,
   clipPath = clipPaths[type](stretch),
   borderWidth = 2,
+  as,
   ...props
-}) => {
+}: PropsWithChildren<PolygonProps<T>>) {
+  const Component = as || 'div';
+
   return (
-    <div className={twMerge('polygon relative flex', props.className, props.borderColor)} style={{ clipPath }}>
+    <Component className={twMerge('polygon relative flex', props.className, props.borderColor)} style={{ clipPath }}>
       {props.borderLeftColor && (
         <div
           className={clsx(props.borderLeftColor, 'absolute z-1 inner')}
@@ -49,15 +52,15 @@ export const Polygon: React.FC<PropsWithChildren<PolygonProps>> = ({
           clipPath,
           backgroundImage: props.bgImage ? `url(${props.bgImage})` : undefined,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover'
+          backgroundSize: 'cover',
         }}
       />
       {props.children}
-    </div>
+    </Component>
   );
-};
+}
 
-interface PolygonProps {
+export interface PolygonProps<T extends React.ElementType> extends Omit<React.HTMLProps<T>, 'as'> {
   borderWidth?: number | { top?: number; right?: number; bottom?: number; left?: number };
   type?: 'hexagon' | 'heptagon' | 'octagon';
   bgColor?: string;
@@ -67,4 +70,5 @@ interface PolygonProps {
   clipPath?: string;
   stretch?: number;
   borderLeftColor?: string;
+  as?: T;
 }
