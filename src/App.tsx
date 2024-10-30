@@ -2,6 +2,7 @@ import { Polygon } from './components/polygon.tsx';
 import banner from './assets/banner.jpg';
 import { IconChevronDown, IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import { Flower } from './components/flower.tsx';
+import { Steps } from './components/steps.tsx';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <div className="h-[200px] w-full bg-no-repeat bg-cover"></div>
       </Polygon>
 
-      <div className="flex flex-col-reverse items-center w-[800px] mt-[-125px] z-10">
+      <div className="flex flex-col-reverse items-center w-full max-w-[800px] mt-[-125px] z-10">
         <Polygon
           className="p-8 w-full h-[150px] mt-[-50px] flex items-end justify-center text-text"
           borderColor="bg-content-1"
@@ -39,7 +40,7 @@ function App() {
           </div>
         </Polygon>
       </div>
-      <div className="w-[70vw] h-[400px] flex flex-col items-center mt-[-75px] border-l-text border-r-text border-l-2 border-r-2 relative">
+      <div className="w-[70vw] min-w-[900px] h-[300px] flex flex-col items-center mt-[-75px] border-l-text border-r-text border-l-2 border-r-2 relative border-l-accent">
         <Flower className="absolute top-[-35px] left-[-35px]" />
         <Polygon
           type="octagon"
@@ -77,6 +78,29 @@ function App() {
           </Polygon>
         </div>
       </div>
+      <Polygon
+        className="w-[70vw] h-[100px] min-w-[900px]"
+        borderColor="bg-text"
+        borderWidth={{ top: 0 }}
+        borderLeftColor="bg-accent"
+        bgColor="bg-background"
+        clipPath="polygon(0 0, 100% 0, 100% 70%, 97% 100%, 3% 100%, 0 70%)"
+      />
+      <Steps
+        className="mt-[-40px]"
+        steps={[
+          { title: 'cultivate', description: 'your mind' },
+          { title: 'mulch', description: 'your mind' },
+          { title: 'prune', description: 'your emotions' },
+          { title: 'fertilize', description: 'your dreams' },
+        ]}
+      />
+
+      <Polygon className="max-w-[800px] w-full h-[150px] mt-[50px] flex items-center justify-center" bgColor="bg-content-2" borderColor="bg-content-1">
+        <Polygon className="w-[200px] h-[70px] flex items-center justify-center" bgColor="bg-accent" stretch={10}>
+          <span className="text-content-2 font-extrabold text-lg">reveal</span>
+        </Polygon>
+      </Polygon>
     </div>
   );
 }

@@ -6,8 +6,8 @@ import flower from '../assets/flower.png';
 export const Flower: React.FC<FlowerProps> = (props) => {
   return (
     <Polygon type="octagon" className={twMerge('w-[70px] h-[70px] items-center justify-center', props.className)} bgColor="bg-content-1" borderColor="bg-accent">
-      <span className="flex items-center justify-center brightness-0 invert">
-        <img src={flower} alt="" width={40} height={40} />
+      <span className="flex items-center justify-center brightness-0 invert p-4">
+        <img src={flower} alt="" />
       </span>
     </Polygon>
   );
