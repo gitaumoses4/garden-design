@@ -11,7 +11,7 @@ export const Steps: React.FC<StepsProps> = (props) => {
           <Polygon
             key={index}
             className="flex w-full h-full flex-col justify-center items-center gap-2"
-            bgColor={index % 2 === 1 ? 'bg-content-1' : 'bg-content-2'}
+            bgColor={index % 2 === 1 ? 'bg-content-2' : 'bg-background'}
             stretch={10}
             borderColor="bg-text/50"
           >

@@ -9,7 +9,7 @@ export default {
         text: '#fdfdfd',
         'content-1': '#8757b4',
         'content-2': '#534c8a',
-        'content-3': '#8757b4',
+        'content-3': '#b56bb1',
       },
     },
     fontFamily: {

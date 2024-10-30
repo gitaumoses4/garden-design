@@ -48,6 +48,8 @@ export const Polygon: React.FC<PropsWithChildren<PolygonProps>> = ({
           ...createBorderWidth(borderWidth, 2),
           clipPath,
           backgroundImage: props.bgImage ? `url(${props.bgImage})` : undefined,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
         }}
       />
       {props.children}

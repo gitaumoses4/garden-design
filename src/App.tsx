@@ -6,7 +6,7 @@ import { Steps } from './components/steps.tsx';
 
 function App() {
   return (
-    <div className="flex flex-col items-center w-screen h-screen bg-background">
+    <div className="flex flex-col items-center w-screen h-full bg-background">
       <Polygon
         bgImage={banner}
         borderColor="bg-text"
@@ -40,13 +40,13 @@ function App() {
           </div>
         </Polygon>
       </div>
-      <div className="w-[70vw] min-w-[900px] h-[300px] flex flex-col items-center mt-[-75px] border-l-text border-r-text border-l-2 border-r-2 relative border-l-accent">
+      <div className="w-[70vw] min-w-[900px] h-[300px] flex flex-col items-center mt-[-75px] border-r-text border-l-2 border-r-2 relative border-l-accent">
         <Flower className="absolute top-[-35px] left-[-35px]" />
         <Polygon
           type="octagon"
           className={'absolute top-[-35px] right-[-35px] w-[70px] h-[70px] items-center justify-center'}
-          bgColor="bg-content-1"
-          borderColor="bg-accent"
+          bgColor="bg-content-2"
+          borderColor="bg-text"
         >
           <div className="flex flex-col gap-0 items-center justify-center brightness-0 invert">
             <h2 className="m-0 p-0 font-extrabold text-2xl mb-[-5px]">20</h2>
